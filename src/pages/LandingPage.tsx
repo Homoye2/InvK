@@ -333,7 +333,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-sm">
-            <p>© 2026 invK. Tous droits réservés.</p>
+            <p>© 2026 invK. Tous droits réservés par Homoye.</p>
             <p className="mt-2 text-gray-400">Fait avec ❤️ pour les commerçants africains</p>
           </div>
         </div>
@@ -370,7 +370,7 @@ function FeatureCard({ icon, title, description, features }: {
 function StepCard({ number, title, description }: { number: string; title: string; description: string }) {
   return (
     <div className="text-center">
-      <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white text-2xl font-bold rounded-full mb-6 shadow-lg">
+      <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-black text-2xl font-bold rounded-full mb-6 shadow-lg">
         {number}
       </div>
       <h3 className="text-2xl font-bold mb-3 text-gray-900">{title}</h3>

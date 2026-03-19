@@ -57,8 +57,8 @@ export default function RegisterPage() {
       <div className="w-full max-w-xl">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-block">
-            <img src={Logo} alt="invK" className="h-12 mx-auto mb-4 object-contain" />
+          <Link to="/" className="inline-block  w-50 h-20">
+            <img src={Logo} alt="invK" className="h-full mx-auto mb-4 object-contain" />
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">Créez votre boutique</h1>
           <p className="text-gray-500 text-sm mt-1">Essai gratuit de 30 jours — sans carte bancaire</p>
@@ -176,7 +176,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-primary-600 hover:bg-primary-700 disabled:opacity-60 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md text-sm"
+              className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md text-sm"
             >
               {loading ? (
                 <>

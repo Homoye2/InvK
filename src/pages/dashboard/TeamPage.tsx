@@ -2,15 +2,11 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   Users, Plus, X, UserCheck, UserX, Eye, EyeOff,
-  Copy, CheckCircle, Phone, Lock, User,
+  Copy, CheckCircle, Lock, User,
 } from 'lucide-react';
 import { usersAPI } from '../../lib/api';
 import type { User as UserType } from '../../types';
-
-const roleLabels: Record<string, string> = {
-  ADMIN_COMMERCANT: 'Gérant',
-  EMPLOYE: 'Employé',
-};
+import PhoneInput from '../../components/PhoneInput';
 
 interface CreatedEmployee {
   name: string;
@@ -100,7 +96,7 @@ export default function TeamPage() {
           </p>
           <div className="space-y-2">
             <CredentialRow
-              icon={<Phone className="w-4 h-4" />}
+              icon={<span className="text-base">📞</span>}
               label="Identifiant"
               value={created.identifier}
               onCopy={() => copyToClipboard(created.identifier, 'id')}
@@ -213,17 +209,10 @@ export default function TeamPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Téléphone * <span className="text-xs font-normal text-gray-400">(identifiant de connexion)</span>
                 </label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                  <input
-                    type="text"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full pl-9 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                    placeholder="+221771234567"
-                    required
-                  />
-                </div>
+                <PhoneInput
+                  value={form.phone}
+                  onChange={(v) => setForm({ ...form, phone: v })}
+                />
                 <p className="text-xs text-gray-400 mt-1">L'employé utilisera ce numéro pour se connecter</p>
               </div>
 

@@ -65,8 +65,8 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-block">
-            <img src={Logo} alt="invK" className="h-12 mx-auto mb-4 object-contain" />
+          <Link to="/" className="inline-block w-50 h-20  ">
+            <img src={Logo} alt="invK" className="h-full mx-auto  object-fit" />
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">Bon retour !</h1>
           <p className="text-gray-500 text-sm mt-1">Connectez-vous à votre espace</p>
@@ -132,7 +132,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-primary-600 hover:bg-primary-700 disabled:opacity-60 cursor-pointer font-semibold rounded-xl transition-all shadow-sm hover:shadow-md text-sm text-black"
+              className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:opacity-60 cursor-pointer font-semibold rounded-xl transition-all shadow-sm hover:shadow-md text-sm text-white"
             >
               {loading ? (
                 <>

@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { User, Lock, Phone, Save, CheckCircle, AlertCircle, CreditCard } from 'lucide-react';
+import { User, Lock, Save, CheckCircle, AlertCircle, CreditCard } from 'lucide-react';
 import { usersAPI, subscriptionsAPI } from '../../lib/api';
 import { useAuthStore } from '../../store/authStore';
+import PhoneInput from '../../components/PhoneInput';
 
 export default function MerchantSettingsPage() {
   const { user, setUser } = useAuthStore();
 
   // phone is stored in email field for phone-based users
   const displayPhone = user?.phone || (user?.email?.startsWith('+') ? user.email : '');
-  const displayEmail = user?.email?.startsWith('+') ? '' : (user?.email || '');
 
   const [profileForm, setProfileForm] = useState({ name: user?.name || '', phone: displayPhone });
   const [passwordForm, setPasswordForm] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
@@ -63,7 +63,7 @@ export default function MerchantSettingsPage() {
   };
 
   return (
-    <div className="max-w-2xl space-y-6">
+    <div className="container space-y-6">
       {/* Subscription info */}
       {usage && (
         <div className="bg-white rounded-xl border border-gray-200 p-5">
@@ -131,11 +131,12 @@ export default function MerchantSettingsPage() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              <span className="flex items-center space-x-1"><Phone className="w-3.5 h-3.5" /><span>Téléphone</span></span>
+              <span className="flex items-center space-x-1"><span>📞</span><span>Téléphone</span></span>
             </label>
-            <input type="tel" value={profileForm.phone} onChange={(e) => setProfileForm({ ...profileForm, phone: e.target.value })}
-              placeholder="+221XXXXXXXXX"
-              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent" />
+            <PhoneInput
+              value={profileForm.phone}
+              onChange={(v) => setProfileForm({ ...profileForm, phone: v })}
+            />
           </div>
           <button type="submit" disabled={profileMutation.isPending}
             className="flex items-center space-x-2 px-4 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 transition-colors text-sm">

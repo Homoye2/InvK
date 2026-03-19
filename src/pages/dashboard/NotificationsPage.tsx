@@ -40,7 +40,7 @@ export default function MerchantNotificationsPage() {
     new Date(d).toLocaleString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div className="max-w-2xl mx-auto space-y-4">
+    <div className="container mx-auto space-y-4">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Notifications</h1>
